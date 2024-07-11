@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: parentship
+  data:
+    mongodb:
+      database: parentship
+      uri: mongodb://localhost/parentship
+      host: localhost
+      auto-index-creation: true
+    neo4j:
+      database: relations
+      repositories:
+        type: auto
+
+  neo4j:
+    authentication:
+      username: neo4j
+      password: QWEr!@#4
+    uri: bolt://localhost:7689
+    
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+#      - org.springframework.boot.autoconfigure.neo4j.Neo4jAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri:
+#          jwk-set-uri:
+#          jws-algorithms: RS256
+#      client:
+#        registration:
+#          github:
+#            client-id: Ov23liuqCboa5YBb5ILy
+#            client-secret: 5e693e6a8b7ae60808607011e713beaec420b4e1
+
+server:
+  servlet:
+    context-path: /parentship
